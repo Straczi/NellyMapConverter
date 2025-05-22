@@ -49,7 +49,6 @@ def mark_outdoors(array):
         if array[i, 0] == VALUE_UNSCANNED:
             map_outside(array, i, 0)
         if array[i, 0] == VALUE_INDOOR:
-            print("1")
             new_array = np.full((array.shape[0], array.shape[1] + 1), VALUE_OUTDOOR, dtype=array.dtype)
             new_array[:, -array.shape[1]:] = array
             array = new_array
@@ -58,7 +57,6 @@ def mark_outdoors(array):
         if array[i, array.shape[1] - 1] == VALUE_UNSCANNED:
             map_outside(array, i, array.shape[1] - 1)
         if array[i, array.shape[1] - 1] == VALUE_INDOOR:
-            print("2")
             new_array = np.full((array.shape[0], array.shape[1] + 1), VALUE_OUTDOOR, dtype=array.dtype)
             new_array[:, :-1] = array
             array = new_array
@@ -67,7 +65,6 @@ def mark_outdoors(array):
         if array[0, i] == VALUE_UNSCANNED:
             map_outside(array, 0, i)
         if array[0, i] == VALUE_INDOOR:
-            print("3")
             new_array = np.full((array.shape[0] + 1, array.shape[1]), VALUE_OUTDOOR, dtype=array.dtype)
             new_array[1:, :] = array
             array = new_array
@@ -76,7 +73,6 @@ def mark_outdoors(array):
         if array[array.shape[0] - 1, i] == VALUE_UNSCANNED:
             map_outside(array, array.shape[0] - 1, i)
         if array[array.shape[0] - 1, i] == VALUE_INDOOR:
-            print("4")
             new_array = np.full((array.shape[0] + 1, array.shape[1]), VALUE_OUTDOOR, dtype=array.dtype)
             new_array[:-1, :] = array
             array = new_array
