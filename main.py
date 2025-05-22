@@ -78,12 +78,6 @@ def mark_outdoors(array):
             array = new_array
     return array
 
-def resize(array):
-    new_array = np.full((array.shape[0], array.shape[1] + 1), VALUE_OUTDOOR, dtype=array.dtype)
-    new_array[:, :-1] = array
-    #new_array[:, -array.shape[1]:] = array
-    return new_array
-
 def insert_walls(array):
     for i in range(array.shape[0]):
         for j in range(array.shape[1]):
